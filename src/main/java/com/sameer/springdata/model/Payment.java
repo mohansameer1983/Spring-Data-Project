@@ -1,22 +1,41 @@
 package com.sameer.springdata.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "payments")
 public class Payment {
 
-	String PaymentId, PaymentAmt, Currency;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "PaymentId")
+	String paymentId;
+	
+	@Column(name = "Currency")
+	String Currency;
+	
+	@Column(name = "PaymentAmt")
+	double PaymentAmt;
+
 
 	public String getPaymentId() {
-		return PaymentId;
+		return paymentId;
 	}
 
 	public void setPaymentId(String paymentId) {
-		PaymentId = paymentId;
+		this.paymentId = paymentId;
 	}
 
-	public String getPaymentAmt() {
+	public double getPaymentAmt() {
 		return PaymentAmt;
 	}
 
-	public void setPaymentAmt(String paymentAmt) {
+	public void setPaymentAmt(double paymentAmt) {
 		PaymentAmt = paymentAmt;
 	}
 
@@ -27,6 +46,4 @@ public class Payment {
 	public void setCurrency(String currency) {
 		Currency = currency;
 	}
-	
-	
 }
