@@ -14,14 +14,24 @@ public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "PaymentId")
-	String paymentId;
+	private String paymentId;
 	
 	@Column(name = "Currency")
-	String Currency;
+	private String Currency;
 	
 	@Column(name = "PaymentAmt")
-	double PaymentAmt;
+	private double PaymentAmt;
+	
+	@Column(name = "AccountId")
+	private int AccountId;	
 
+	public int getAccountId() {
+		return AccountId;
+	}
+
+	public void setAccountId(int accountId) {
+		AccountId = accountId;
+	}
 
 	public String getPaymentId() {
 		return paymentId;
